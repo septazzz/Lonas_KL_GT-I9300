@@ -1,0 +1,72 @@
+Kernel Lonas_KL 4.3 versión Stock
+
+------------------------------------------------
+Cambios realizados a día 28/06/2013
+
+Kernel re-escrito completamente (Todo lo anterior fue eliminado)
+Actualizado Linux 3.0.83
+Fix (menores) internos en la base 3.0.83
+Añadido Busybox v.1.20.2-jb bionic internamente + symlinks
+Compilado con TOOLCHAIN GCC 4.3.3 en config + 4.7 (NO LINARO) internamente
+Sustituida compresión gzip por xz
+(CRT-off) msleep a 100
+Correcciones en el cálculo LOAD_FREQ
+Soporte Triangle Away
+Fix Soporte Exfat
+wm8994: fixing HDMI audio streaming
+Soporte swap
+Soporte CIF y NFS
+Carga Rápida USB - 900mA
+sched_features: Activado ARCH_POWER
+drivers: mmc: Desactivado CRC
+Soporte compresor/descompresor SNAPPY
+Mejorada transferencia de escritura y lectura (internal_read_ahead a 512 y external a 1024)
+mdnie: black crush fix
+clock-exynos4212: Añadidas mas frecuencias
+Añadido Sysfs helper
+Desactivar multicast en suspensión
+Añadido Dynamic FSync control (Se puede activar / desactivar desde LPowerCC)
+buqfreq: Use cpu_load_slope correctly
+mmc: Aumentar tiempo de espera sd
+cpufreq: Tweaks PegasusQ
+logger: Add sysfs interface to Enable / Disable Android Logger (Se puede activar / desactivar desde LPowerCC)
+display: capability for CPU frequency based LCD freq scaling
+cpufreq: Resolver problema CPUFREQ_NOTIFY
+cpufreq: Retain only online cpus in managed_policy->cpus
+writeback: Don't call writeback_set_ratelimit() too often during hotplug
+cpufreq: 1600MHz CPU OC (por defecto a 1400)
+Eliminar registro de depuración (debug) para algunos drivers
+samsung-battery: Reduce battery-monitor wakelock timeouts
+binfmt_elf: use get_random_int() to fix entropy depleting
+block: ROW scheduler
+block: ROW & blk-core
+Controlador Rem Sound 0.8
+Añadidos sio-vr-zen ioscheds
+Añadidos lulzactiveq-zzmoove governors
+Añadida nueva APP (basada en los sources de stweaks) LPowerCC
+Añadido Superuser.apk y Su (rootea el terminal si no lo está)
+Soporte Bootanimations personalizados en /data/local/bootanimation.zip y /system/media/bootanimation.zip
+Soporte Init.d
+Añadido lImpiador de Kernels, limpiador de cache y dalvick en instalación
+Añadido tweaks para mejorar el rendimiento
+Añadido tweak low_latency para scheduler ROW
+Añadido tweaks lowmemorykiller (Mejora la gestión de memoria)
+Bajado min_free_kbytes a 3642
+Añadidos tweaks para una mejor conexión de red (wifi & 3g)	
+Añadidos scripts sqlite.sh y zipalign.sh + binarios en /sbin
+No tiene Soporte uV (se crearán versiones con uV paralelas)
+--------------------------------------------------
+
+Eliminar antes con rootexplorer stweaks y LPowerCC si lo tenéis instalado para evitar problemas.
+-------------------------------------------------------------------------------------------------
+
+Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, parches, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
+
+Quiero dar mi Agradecimiento a: 
+
+Samsung, perka, yank555-lu, AndreiLux, andip71, gokhanmoral, alanorth, NeoPhyTe-x360, temasek, franciscofranco, Ezekeel, François, simone201, fenomeno83, zanezam, Vincent Guittot, Hardcore, CruzBishop, Andreas Kemnade, faux123, Alex Shi...
+
+Y alguno más que seguro no recuerdo ahora ;)
+
+
+
