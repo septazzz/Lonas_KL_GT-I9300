@@ -294,7 +294,7 @@ config LCD_FREQ_SWITCH_ACCOUNTING
 config CPU_FREQ_LCD_FREQ_DFS
        bool "support for CPU frequency based LCD freq scaling"
        depends on LCD_FREQ_SWITCH && CPU_FREQ
-       default 
+       default n
 
 config FB_S5P_V2
 	tristate "S5P Framebuffer version 2 support"
