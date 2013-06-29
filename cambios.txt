@@ -54,6 +54,7 @@ Añadido tweaks lowmemorykiller (Mejora la gestión de memoria)
 Bajado min_free_kbytes a 3642
 Añadidos tweaks para una mejor conexión de red (wifi & 3g)	
 Añadidos scripts sqlite.sh y zipalign.sh + binarios en /sbin
+Añadido TOUCHSCREEN_GESTURES
 No tiene Soporte uV (se crearán versiones con uV paralelas)
 --------------------------------------------------
 
