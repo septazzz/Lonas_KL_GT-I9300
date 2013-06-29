@@ -1,0 +1,12 @@
+scaling_governor=zzmoove
+internal_iosched=row
+sd_iosched=row
+internal_read_ahead_kb=512
+sd_read_ahead_kb=1024
+logger_mode=off
+min_free_kbytes=3642
+vfs_cache_pressure=10
+dirty_ratio=90
+dirty_background_ratio=5
+dirty_writeback_centisecs=2000
+dirty_expire_centisecs=1000
