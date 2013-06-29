@@ -1,11 +1,10 @@
 Kernel Lonas_KL 4.3 versión Stock
 
 ------------------------------------------------
-Cambios realizados a día 28/06/2013
+Cambios realizados a día 29/06/2013
 
 Kernel re-escrito completamente (Todo lo anterior fue eliminado)
-Actualizado Linux 3.0.83
-Fix (menores) internos en la base 3.0.83
+Actualizado Linux 3.0.84
 Añadido Busybox v.1.20.2-jb bionic internamente + symlinks
 Compilado con TOOLCHAIN GCC 4.3.3 en config + 4.7 (NO LINARO) internamente
 Sustituida compresión gzip por xz
@@ -55,6 +54,7 @@ Bajado min_free_kbytes a 3642
 Añadidos tweaks para una mejor conexión de red (wifi & 3g)	
 Añadidos scripts sqlite.sh y zipalign.sh + binarios en /sbin
 Añadido TOUCHSCREEN_GESTURES
+hrtimer:__run_hrtimer races with enqueue_hrtimer
 No tiene Soporte uV (se crearán versiones con uV paralelas)
 --------------------------------------------------
 
