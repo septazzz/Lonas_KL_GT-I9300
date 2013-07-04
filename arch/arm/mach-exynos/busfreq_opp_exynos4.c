@@ -17,6 +17,7 @@
 #include <linux/io.h>
 #include <linux/regulator/consumer.h>
 #include <linux/sysfs.h>
+#include <linux/sysfs_helpers.h>
 #include <linux/platform_device.h>
 #include <linux/device.h>
 #include <linux/module.h>
