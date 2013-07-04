@@ -12,8 +12,11 @@ mdnie: Switchable sharpness fix
 ARM: descompresor: Habilitar el acceso de memoria no alineada v6
 mach-exynos: Don't compile unused 4210 objects on 4x12
 tcp: Proportional Rate Reduction for TCP
-Actualizada APP LCpowerCC 0.2 (Añadidas nuevas opciones LED fading & Mdnie sharpness fix)
+Actualizada APP LPowerCC 0.2 (Añadidas nuevas opciones LED fading & Mdnie sharpness fix)
 -------------------------------------------------- 
+
+Si vais a Flashear por ODIN, tenéis que eliminar antes de /system/app/ la app LPowerCC para que actualice a 0.2
+------------------------------------------------------------------------------------------
 
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, parches, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
