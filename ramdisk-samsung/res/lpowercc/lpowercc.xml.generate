@@ -24,7 +24,7 @@ done
 echo '
       </spinner>
     </settingsPane>
-    <settingsPane description="Aplicar la configuración de arranque sólo si la que desea llega a ser estable, de lo contrario el equipo termina en un Bucle de reinicios o directamente no arrancará. Si se desactiva, los valores mostrados no corresponden a los valores reales actuales, los valores correctos de los perfiles están guardados." 
+    <settingsPane description="Aplicar la configuración de arranque sólo si la que desea llega a ser estable, de lo contrario el equipo puede terminar en un Bucle de reinicios constante o directamente no le arrancará." 
                   name="CPU control switch">
       <checkbox description="Si está activado, los ajustes siguientes se aplicarán en el arranque." 
                 name="Establezca la configuración de la CPU en el arranque" 
@@ -35,7 +35,7 @@ echo '
   </settingsTab>
 
   <settingsTab name="Zzmoove">
-    <settingsPane description="ZZmove es el Governor por defecto, desde aquí podrá seleccionar diferentes perfiles dependiendo de el uso que le quiera dar. Podrá elegir entre Batería, Equilibrado y Rendimiento. Pero estos perfiles solo son funcionales si el governor por defecto es Zzmove"  
+    <settingsPane description="ZZmove es el Governor por defecto, desde aquí podrá seleccionar diferentes perfiles dependiendo de el uso que le quiera dar. Podrá elegir entre Batería, Equilibrado y Rendimiento. Pero estos perfiles solo son funcionales si el governor seleccionado por defecto es Zzmove"  
                   name="Información">
     </settingsPane>' >> $XML
 
@@ -51,7 +51,7 @@ echo "
     <settingsPane description=\"regular el escalado del voltaje de la frecuencia dinámica de la CPU.\" 
                   name=\"Zzmoove tuneables\">
 
-      <seekBar description=\"Frecuencia de muestreo en microsegundos, el tiempo de muestreo en el cual el gobernador activa la carga de la CPU. Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate` µS.\" 
+      <seekBar description=\"Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate` µS.\" 
                name=\"Sampling rate\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate\"
                unit=\"µS\" min=\"10000\" reversed=\"false\" step=\"1000\" max=\"180000\"/>
@@ -61,8 +61,7 @@ echo "
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate_sleep_multiplier\"
                unit=\"\" min=\"1\" reversed=\"false\" step=\"1\" max=\"4\"/>
 
-      <seekBar description=\"Este valor actúa como multiplicador inverso para reducir la frecuencia de muestreo de utilización de la CPU (sampling_rate) cuando el procesador está realmente ocupado y está a la frecuencia máxima. Por ejemplo sampling_rate=10.000 con sampling_down_factor=2: el scheduler tomará muestras de utilización de la CPU cada 20.000 microsegundos. De esta forma se aumenta el tiempo que la CPU está a frecuencias altas cuando está realmente ocupada. Esto mejora el rendimiento mediante la reducción de los gastos generales de la evaluación de la carga y ayudando a la CPU permanecer en su frecuencia más alta cuando está ocupada, en vez de producir un efecto ping-pong en la velocidad. Este parámetro no tiene ningún efecto sobre el comportamiento a bajas frecuencias y bajas cargas de CPU. 
-Los valores que puede tomar este parámetro son enteros positivos. El valor 1 hace que no haya diferencias de muestreo a frecuencia maxima. Por defecto:  `cat /sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_factor` samples.\"  
+      <seekBar description=\"Por defecto:  `cat /sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_factor` samples.\"  
                name=\"Sampling down factor\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_factor\"
                unit=\"\" min=\"1\" reversed=\"false\" step=\"1\" max=\"10\"/>
@@ -77,7 +76,7 @@ Los valores que puede tomar este parámetro son enteros positivos. El valor 1 ha
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_momentum_sensitivity\"
                unit=\"\" min=\"1\" reversed=\"false\" step=\"1\" max=\"1000\"/>
 
-      <seekBar description=\"cuando la carga de la CPU llega a este punto, la frecuencia de la CPU escalará hacia arriba. Está medido en porcentaje de 1 a 100. Mayor valor significa menos capacidad de respuesta y valores más bajos corresponden a mejor respuesta repercutiendo en el gasto de la batería. Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold`%.\" 
+      <seekBar description=\"Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold`%.\" 
                name=\"Up threshold\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold\"
                unit=\"%\" min=\"11\" reversed=\"false\" step=\"1\" max=\"99\"/>
@@ -152,7 +151,7 @@ Los valores que puede tomar este parámetro son enteros positivos. El valor 1 ha
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/freq_step\"
                unit=\"%\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
 
-      <seekBar description=\"Valores posibles: van de 0 a 100, si no se establece por defecto es 5, el valor 0 se detendrá el escalado de frecuencia y mantendrá la frec real. Valor 100 saltará directamente hacia arriba o hacia abajo para límites como gobernador ondemand. Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/freq_step_sleep`.\" 
+      <seekBar description=\"Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/freq_step_sleep`.\" 
                name=\"Frequency step sleep\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/freq_step_sleep\"
                unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
@@ -253,7 +252,7 @@ echo '
     </settingsPane>
 
     <settingsPane name="I/O read-ahead" 
-                  description="Aumentar velocidad de lectura y escritura.">
+                  description="Aumentar la velocidad de lectura y escritura.">
 
       <seekBar  description="El valor de lectura y escritura en la memoria interna del teléfono" 
                 name="Internal storage read-ahead" 
@@ -308,7 +307,7 @@ echo '
     </settingsPane>
 
     <settingsPane name="Dirty Writeback Centisecs" 
-                  description="Esto le indica al kernel cada cuantos segundos debe escribir los datos al disco. El valor por defecto es de 500, que equivale a 5 segundos. Este parámetro puede influir bastante en rendimiento y gasto de batería, así que ojo con el">
+                  description="Esto le indica al kernel cada cuantos segundos debe escribir los datos al disco. El valor por defecto es de 2000, que equivale a 20 segundos. Este parámetro puede influir bastante en rendimiento y gasto de batería, así que ojo con el">
      
       <seekBar  description="Por defecto: 2000." 
                 name="Dirty Writeback Centisecs" 
@@ -318,7 +317,7 @@ echo '
     </settingsPane>
 
     <settingsPane name="Dirty Expire Centisecs" 
-                  description="dirty_expire_centisecs define cuando los datos en memoria que se encuentran marcados como sucios (dirty) son lo suficientemente antiguos como para ser candidatos a escritura. El valor por defecto es 250. Este parámetro puede influir bastante en rendimiento y gasto de batería, así que ojo con el">
+                  description="dirty_expire_centisecs define cuando los datos en memoria que se encuentran marcados como sucios (dirty) son lo suficientemente antiguos como para ser candidatos a escritura. El valor por defecto es 1000. Este parámetro puede influir bastante en rendimiento y gasto de batería, así que ojo con el">
      
       <seekBar  description="Por defecto: 1000." 
                 name="Dirty Expire Centisecs" 
@@ -347,7 +346,26 @@ echo '
 
     </settingsPane>
   </settingsTab>
+  <settingsTab name="Pantalla/LED">
+    <settingsPane name="LED fading" 
+                  description="Led Fading"> 
 
+      <checkbox description="Ahora podrás activar si deseas el LED frontal con FADE o sin FADE."
+                name="Activar o Desactivar FADE" 
+                action="generic01 /sys/class/sec/led/led_fade"
+                label="Activar LED-Fading"/>
+
+   </settingsPane>
+    <settingsPane name="Mdnie sharpness fix" 
+                  description="Mdnie sharpness fix no es mas que un FIX creado por Hardcore para la pantalla y que mejora la legibilidad del texto.">
+
+      <checkbox description="Mdnie sharpness fix" 
+                name="Activar o Desactivar el FIX" 
+                action="generic01 /sys/class/misc/mdnie_preset/mdnie_preset"
+                label="Activar FIX"/>
+
+    </settingsPane>
+  </settingsTab>
 </settingsRoot>' >> $XML
 
 chmod 777 $XML
