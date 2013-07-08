@@ -37,7 +37,7 @@ unsigned int Rem_sound_hook_wm8994_write(unsigned int reg, unsigned int value);
 /*****************************************/
 
 // Rem sound general
-#define REM_SOUND_DEFAULT 	1
+#define REM_SOUND_DEFAULT 	0
 #define REM_SOUND_VERSION 	"0.8"
 
 // Debug mode
