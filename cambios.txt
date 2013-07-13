@@ -1,8 +1,10 @@
 Kernel Lonas_KL 4.7 versión Stock
 
 ------------------------------------------------
-Cambios realizados a día 13/07/2013
+Cambios realizados a día 14/07/2013
 
+Actualizado a Linux 3.0.86
+Actualizado Governor ZZmoove (Versión 0.6)
 bcmdhd: Desactivado GAN_LITE_NAT_KEEPALIVE_FILTER
 Update fbearlysuspend sysfs interface
 -------------------------------------------------- 
