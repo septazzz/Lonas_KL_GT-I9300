@@ -1,12 +1,10 @@
-Kernel Lonas_KL 4.6 versión Stock
+Kernel Lonas_KL 4.7 versión Stock
 
 ------------------------------------------------
-Cambios realizados a día 11/07/2013
+Cambios realizados a día 13/07/2013
 
-Reconfigurado Lonas_defconfig (Configuración del Kernel)
-Añadidos nuevos tweaks para mas ahorro de batería
-Añadidos nuevo tweaks para una mejor respuesta del display cuando se realiza una llamada
-Añadido nuevo tweak para una mejor gestión de la GPU
+bcmdhd: Desactivado GAN_LITE_NAT_KEEPALIVE_FILTER
+Update fbearlysuspend sysfs interface
 -------------------------------------------------- 
 
 
