@@ -1,22 +1,13 @@
-Kernel Lonas_KL 4.4 versión Stock
+Kernel Lonas_KL 4.6 versión Stock
 
 ------------------------------------------------
-Cambios realizados a día 04/07/2013
+Cambios realizados a día 11/07/2013
 
-Actualizado Linux 3.0.85
-Desactivado Soporte Swap (Mas fluidez y estabilidad)
-xz: tweaking kernel compression
-busfreq: include sysfs_helpers.h
-leds-an30259a: LED fading/blinking support
-mdnie: Switchable sharpness fix
-ARM: descompresor: Habilitar el acceso de memoria no alineada v6
-mach-exynos: Don't compile unused 4210 objects on 4x12
-tcp: Proportional Rate Reduction for TCP
-Actualizada APP LPowerCC 0.2 (Añadidas nuevas opciones LED fading & Mdnie sharpness fix)
+Reconfigurado Lonas_defconfig (Configuración del Kernel)
+Añadidos nuevos tweaks para mas ahorro de batería
+Añadidos nuevo tweaks para una mejor respuesta del display cuando se realiza una llamada
+Añadido nuevo tweak para una mejor gestión de la GPU
 -------------------------------------------------- 
-
-Si vais a Flashear por ODIN, tenéis que eliminar antes de /system/app/ la app LPowerCC para que actualice a 0.2
-------------------------------------------------------------------------------------------
 
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, parches, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.

@@ -9,14 +9,18 @@
 # Aumenta el rendimiento de la respuesta táctil
 /sbin/busybox setprop debug.performance.tuning 1
 /sbin/busybox setprop video.accelerate.hw 1
+/sbin/busybox setprop debug.sf.hw 1
 
 # Incremento de memoria ram
 /sbin/busybox setprop dalvik.vm.heapsize 192m
 
 # Salvar bateria ahorrando en el wifi 
 /sbin/busybox setprop wifi.supplicant_scan_interval 300
-/sbin/busybox setprop ro.ril.disable.power.collapse 1
+/sbin/busybox setprop ro.ril.disable.power.collapse 0
 /sbin/busybox setprop pm.sleep_mode 1
+
+# Conectar la llamada mas rápido después de marcar
+/sbin/busybox setprop ro.telephony.call_ring.delay 1000
 
 /sbin/busybox sysctl -p
 

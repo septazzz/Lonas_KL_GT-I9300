@@ -1,0 +1,157 @@
+#!/sbin/busybox sh
+
+if [ "a$2" != "a" ];then
+
+filename=$(basename $2)
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+else
+  evalcmd='eval "$filename=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+
+      echo "2" > /sys/class/misc/rem_sound/eq
+      
+case "$eq_selection" in
+  0)
+    echo "0 0 0 0 0" > /sys/class/misc/rem_sound/eq_gains
+    echo "0" > /sys/class/misc/rem_sound/eq
+    ;;
+  1)
+
+case "$eq_preset" in
+  0)
+    echo "0 0 0 0 0" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  1)
+    echo "12 8 3 -1 1" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  2)
+    echo "10 7 0 2 5" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  3)
+    echo "-5 1 0 4 3" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  4)
+    echo "0 0 0 -3 -5" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  5)
+    echo "4 3 2 2 3" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  6)
+    echo "12 8 4 2 3" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  7)
+    echo "8 4 2 3 4" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  8)
+    echo "10 8 6 5 7" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  9)
+    echo "9 -3 9 7 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  10)
+    echo "10 -1 8 4 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  11)
+    echo "9 4 3 4 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  12)
+    echo "10 4 3 4 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+  13)
+    echo "9 4 10 4 7" > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+    ;;
+esac;
+;;
+  2)
+
+case "$eq_preset" in
+  0)
+    echo "0 0 0 0 0" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  1)
+    echo "12 8 3 -1 1" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  2)
+    echo "10 7 0 2 5" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  3)
+    echo "-5 1 0 4 3" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  4)
+    echo "0 0 0 -3 -5" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  5)
+    echo "4 3 2 2 3" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  6)
+    echo "12 8 4 2 3" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  7)
+    echo "8 4 2 3 4" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  8)
+    echo "10 8 6 5 7" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  9)
+    echo "9 -3 9 7 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  10)
+    echo "10 -1 8 4 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  11)
+    echo "9 4 3 4 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  12)
+    echo "10 4 3 4 8" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+  13)
+    echo "9 4 10 4 7" > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+    ;;
+esac;
+;;
+  3)
+    echo $eq_band1 " " $eq_band2 " " $eq_band3 " " $eq_band4 " " $eq_band5  > /sys/class/misc/rem_sound/eq_gains
+    echo "1" > /sys/class/misc/rem_sound/eq
+;;
+  4)
+    echo $eq_band1 " " $eq_band2 " " $eq_band3 " " $eq_band4 " " $eq_band5  > /sys/class/misc/rem_sound/eq_gains
+    echo "2" > /sys/class/misc/rem_sound/eq
+;;
+
+esac;
+
+fi
+fi

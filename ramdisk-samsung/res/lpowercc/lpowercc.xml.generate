@@ -35,14 +35,14 @@ echo '
   </settingsTab>
 
   <settingsTab name="Zzmoove">
-    <settingsPane description="ZZmove es el Governor por defecto, desde aquí podrá seleccionar diferentes perfiles dependiendo de el uso que le quiera dar. Podrá elegir entre Batería, Equilibrado y Rendimiento. Pero estos perfiles solo son funcionales si el governor seleccionado por defecto es Zzmove"  
+    <settingsPane description="ZZmove es el Governor por defecto, desde aquí podrá seleccionar diferentes perfiles dependiendo de el uso que le quiera dar. Podrá elegir entre Normal, Batería, Equilibrado y Rendimiento. Pero estos perfiles solo son funcionales si el governor seleccionado por defecto es Zzmove"  
                   name="Información">
     </settingsPane>' >> $XML
 
 echo "
     <settingsPane description=\"Zzmoove perfiles predefinidos\" name=\"Zzmoove perfiles predefinidos\">
       <spinner description=\"Zzmoove perfiles predefinidos\" name=\"Zzmoove perfiles predefinidos\" action=\"zzpredefs zzpredef\">
-             <spinnerItem name=\"Default\" value=\"0\"/> 
+             <spinnerItem name=\"Normal\" value=\"0\"/> 
              <spinnerItem name=\"Batería\" value=\"1\"/> 
              <spinnerItem name=\"Equilibrado\" value=\"2\"/> 
              <spinnerItem name=\"Rendimiento\" value=\"3\"/>
@@ -221,6 +221,30 @@ echo "
 
 echo '
   </settingsTab>
+  <settingsTab name="Cargador">
+    <settingsPane description="Interfaz desde donde podrá seleccionar entre varios perfiles de carga AC/USB, dependiendo del que seleccione la batería cargará mas lento o mas rápido."  
+                  name="Información">
+    </settingsPane>' >> $XML
+
+echo "
+    <settingsPane description=\"Selecciona el Perfil de carga que deseas, por defecto está a 1100mA, un perfil mas alto cargará mas rápido la batería, no es recomendable pasar de 1200mA\" name=\"Carga AC\">
+      <spinner description=\"Por Defecto: AC:1100mA\" name=\"Perfil de Carga AC\" action=\"chargeaccurrent chargeaccurrentpredef\">
+             <spinnerItem name=\"AC:1100mA\" value=\"0\"/> 
+             <spinnerItem name=\"AC:1200mA\" value=\"1\"/> 
+             <spinnerItem name=\"AC:1300mA\" value=\"2\"/> 
+      </spinner>
+    </settingsPane>
+    <settingsPane description=\"Selecciona el Perfil de carga que deseas, por defecto está a 475mA, un perfil mas alto cargará mas rápido la batería, no es recomendable pasar de 900mA\" name=\"Carga USB\">
+      <spinner description=\"Por Defecto: USB:475mA\" name=\"Perfil de Carga USB\" action=\"chargeusbcurrent chargeusbcurrentpredef\">
+             <spinnerItem name=\"USB:475mA\" value=\"0\"/> 
+             <spinnerItem name=\"USB:700mA\" value=\"1\"/> 
+             <spinnerItem name=\"USB:900mA\" value=\"2\"/> 
+             <spinnerItem name=\"USB:1000mA\" value=\"3\"/>
+      </spinner>
+    </settingsPane>
+" >> $XML
+echo '
+  </settingsTab>
 
   <settingsTab name="I/O">
     <settingsPane description="Seeleccione el I/O schedulers que mas se ajuste a sus necesidades, por defecto Lonas_KL usa ROW."  
@@ -269,7 +293,7 @@ echo '
     <settingsPane name="Min Free kbytes" 
                   description="Modificando el valor (en bytes) de /proc/sys/vm/min_free_kbytes, lo que hacemos es redefinir el espacio de memoria libre de que dispone el kernel para cuando la necesita para el sistema, abrir una app, etc.. Lo que hace este ajuste es reservar un mínimo de memoria para el propio sistema. Valores recomendados: 1448k, 2048k, 2896k, 3642k, 4096k, 5792k, 8192k, 11584k, 12288k, 12360k, 16284k y 18360k. Dependerá de este valor el rendimiento de tu sistema">
 
-      <seekBar  description="El mínimo a poder seleccionar es 1448k y el máximo 18360k. Por defecto: 3642 kbytes." 
+      <seekBar  description="El mínimo a poder seleccionar es 1448k y el máximo 18360k. Por defecto: 4096 kbytes." 
                 name="Min Free kbytes" 
                 action="generic /proc/sys/vm/min_free_kbytes"
                 unit="%" min="1448" reversed="false" step="1" max="18360"/>
@@ -347,6 +371,15 @@ echo '
     </settingsPane>
   </settingsTab>
   <settingsTab name="Pantalla/LED">
+    <settingsPane name="Front Buffer"
+		  description="Front Buffer">
+
+      <seekBar  description="Añade un pequeño retraso de x milisegundos al apagar o encender la pantalla, esto soluciona el problema que hace que earlysuspend detuviera el efecto CRT-off, podríamos llamarlo FIX, pero ajustándolo a nuestro gusto."
+		name="Front buffer Fix CRT-off"
+                action="generic /sys/power/fb_delay"
+                unit="ms" min="0" reversed="false" step="25" max="500"/>
+
+    </settingsPane>
     <settingsPane name="LED fading" 
                   description="Led Fading"> 
 

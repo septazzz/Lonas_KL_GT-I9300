@@ -8,13 +8,12 @@ sync
 echo "3" > /proc/sys/vm/drop_caches
 sleep 1
 echo "0" > /proc/sys/vm/drop_caches
-echo "1536,2048,3584,5120,8704,10240" > /sys/module/lowmemorykiller/parameters/minfree
 echo "500000" > /proc/sys/kernel/sched_min_granularity_ns
 echo "1000000" > /proc/sys/kernel/sched_latency_ns
 echo "100000" > /proc/sys/kernel/sched_wakeup_granularity_ns
 
 # Miscellaneous tweaks
-echo "0" > /proc/sys/vm/swappiness
+echo "100" > /proc/sys/vm/swappiness
 echo "0" > /proc/sys/vm/block_dump
 echo "0" > /proc/sys/vm/laptop_mode
 echo "0" > /proc/sys/vm/panic_on_oom 
@@ -84,7 +83,4 @@ echo "0" > /sys/module/xt_qtaguid/parameters/debug_mask
 # Otros Misc tweaks
 /sbin/busybox mount -t debugfs none /sys/kernel/debug
 echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
-
-/sbin/busybox rm /system/lib/egl/libGLES_android.so
-/sbin/busybox sed -i '/0 0 android/d' /system/lib/egl/egl.cfg
 

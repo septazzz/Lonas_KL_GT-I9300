@@ -9,7 +9,7 @@
 /sbin/busybox rm -f /data/dalvik-cache/*.apk
 /sbin/busybox rm -f /data/dalvik-cache/*.tmp
 
-if [ -e /data/.siyah ]; then
+if [ -e /data/.lonas ]; then
 	/sbin/busybox rm -r -f /data/.lonas
 fi;
 
