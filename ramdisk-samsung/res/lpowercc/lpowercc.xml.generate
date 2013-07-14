@@ -290,6 +290,16 @@ echo '
 
     </settingsPane>
 
+    <settingsPane name="Swappiness" 
+                  description="Un valor bajo significa que el kernel va a tratar de evitar el intercambio tanto como sea posible, por contra en un valor más alto intentará de usar el espacio de intercambio de un modo mas agresivo, en resumen: al bajar su valor, le indicamos que use mas caché y menos swap y al subirlo le estamos indicamos al sistema, que use menos Swap y mas caché y memoria RAM.">   
+
+      <seekBar  description="Por defecto: 100." 
+                name="Virtual machine swappiness" 
+                action="generic /proc/sys/vm/swappiness"
+                unit="%" min="0" reversed="false" step="1" max="100"/>
+
+    </settingsPane>
+
     <settingsPane name="Min Free kbytes" 
                   description="Modificando el valor (en bytes) de /proc/sys/vm/min_free_kbytes, lo que hacemos es redefinir el espacio de memoria libre de que dispone el kernel para cuando la necesita para el sistema, abrir una app, etc.. Lo que hace este ajuste es reservar un mínimo de memoria para el propio sistema. Valores recomendados: 1448k, 2048k, 2896k, 3642k, 4096k, 5792k, 8192k, 11584k, 12288k, 12360k, 16284k y 18360k. Dependerá de este valor el rendimiento de tu sistema">
 
@@ -371,29 +381,43 @@ echo '
     </settingsPane>
   </settingsTab>
   <settingsTab name="Pantalla/LED">
-    <settingsPane name="Front Buffer"
-		  description="Front Buffer">
+    <settingsPane name="Touch Boost" 
+                  description="">
+    
+     <checkbox  description="Activar touch boost configurable en frecuencias o desactivar para los steps variables." 
+                name="Touch Boost Switch" 
+                action="generic01 /sys/class/misc/touchboost_switch/touchboost_switch"
+                label="Activar touch boost"/>
 
-      <seekBar  description="Añade un pequeño retraso de x milisegundos al apagar o encender la pantalla, esto soluciona el problema que hace que earlysuspend detuviera el efecto CRT-off, podríamos llamarlo FIX, pero ajustándolo a nuestro gusto."
-		name="Front buffer Fix CRT-off"
+     <seekBar  description="El steps de frecuencia en la que se utilizará Touch Boost. Por defecto 800000 hz" 
+		name="Touch Boost Frequency" 
+                action="generic /sys/class/misc/touchboost_switch/touchboost_freq" 
+                unit=" hz" min="200000" reversed="false" step="100000" max="1400000"/>
+
+    </settingsPane>
+    <settingsPane name="Front Buffer"
+		  description="">
+
+      <seekBar  description="Añade un pequeño retraso de x milisegundos al apagar o encender la pantalla, por defecto está a 0."
+		name="Front buffer"
                 action="generic /sys/power/fb_delay"
                 unit="ms" min="0" reversed="false" step="25" max="500"/>
 
     </settingsPane>
-    <settingsPane name="LED fading" 
-                  description="Led Fading"> 
+    <settingsPane name="Led Fading" 
+                  description=""> 
 
       <checkbox description="Ahora podrás activar si deseas el LED frontal con FADE o sin FADE."
-                name="Activar o Desactivar FADE" 
+                name="LED fading" 
                 action="generic01 /sys/class/sec/led/led_fade"
                 label="Activar LED-Fading"/>
 
    </settingsPane>
-    <settingsPane name="Mdnie sharpness fix" 
-                  description="Mdnie sharpness fix no es mas que un FIX creado por Hardcore para la pantalla y que mejora la legibilidad del texto.">
+    <settingsPane name="Mdnie sharpness" 
+                  description="">
 
-      <checkbox description="Mdnie sharpness fix" 
-                name="Activar o Desactivar el FIX" 
+      <checkbox description="Mdnie sharpness fix no es mas que un FIX creado por Hardcore para la pantalla y que mejora la legibilidad del texto." 
+                name="Mdnie sharpness fix" 
                 action="generic01 /sys/class/misc/mdnie_preset/mdnie_preset"
                 label="Activar FIX"/>
 

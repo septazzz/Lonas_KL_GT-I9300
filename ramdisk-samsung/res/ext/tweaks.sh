@@ -13,7 +13,6 @@ echo "1000000" > /proc/sys/kernel/sched_latency_ns
 echo "100000" > /proc/sys/kernel/sched_wakeup_granularity_ns
 
 # Miscellaneous tweaks
-echo "100" > /proc/sys/vm/swappiness
 echo "0" > /proc/sys/vm/block_dump
 echo "0" > /proc/sys/vm/laptop_mode
 echo "0" > /proc/sys/vm/panic_on_oom 
