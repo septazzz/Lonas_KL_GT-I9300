@@ -1,12 +1,16 @@
-Kernel Lonas_KL 4.7 versión Stock
+Kernel Lonas_KL 4.8 versión Stock
 
 ------------------------------------------------
-Cambios realizados a día 14/07/2013
+Cambios realizados a día 29/07/2013
 
-Actualizado a Linux 3.0.86
-Actualizado Governor ZZmoove (Versión 0.6)
-bcmdhd: Desactivado GAN_LITE_NAT_KEEPALIVE_FILTER
-Update fbearlysuspend sysfs interface
+Actualizado a Linux 3.0.88
+Actualizado Governor ZZmoove (Versión 0.6a)
+fb_delay a 100 por defecto (CRT-off)
+Actualizado SuperUser.apk
+Replaced SNAPPY-v3 with faster LZ4 compress/decompress algorithm
+mms_ts.c: eliminado KERN_DEBUG (guardar silencio)
+dynamic fsync: don't disable fdatasync()
+lcdfreq : support for CPU frequency based LCD freq scaling (used in zzmoove governor)
 -------------------------------------------------- 
 
 
