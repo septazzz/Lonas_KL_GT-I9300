@@ -536,7 +536,7 @@ int can_request_irq(unsigned int irq, unsigned long irqflags)
 		return 0;
 
 	if (irq_settings_can_request(desc)) {
-		if (desc->action)
+		if (!desc->action ||
 			if (irqflags & desc->action->flags & IRQF_SHARED)
 				canrequest =1;
 	}
