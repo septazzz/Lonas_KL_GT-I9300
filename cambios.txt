@@ -7,10 +7,14 @@ Actualizado a Linux 3.0.88
 Actualizado Governor ZZmoove (Versión 0.6a)
 fb_delay a 100 por defecto (CRT-off)
 Actualizado SuperUser.apk
+Actualizado Binario Su
 Replaced SNAPPY-v3 with faster LZ4 compress/decompress algorithm
 mms_ts.c: eliminado KERN_DEBUG (guardar silencio)
 dynamic fsync: don't disable fdatasync()
 lcdfreq : support for CPU frequency based LCD freq scaling (used in zzmoove governor)
+Activado ARM_CPU_TOPOLOGY
+Activado SCHED_MC
+Activado SCHED_SMT
 -------------------------------------------------- 
 
 
