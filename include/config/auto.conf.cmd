@@ -352,7 +352,6 @@ deps_config := \
 	drivers/media/video/samsung/fimg2d3x-exynos4/Kconfig \
 	drivers/media/video/samsung/fimg2d4x/Kconfig \
 	drivers/media/video/samsung/fimg2d3x/Kconfig \
-	drivers/media/video/samsung/mali_r3p0/Kconfig \
 	drivers/media/video/samsung/mali/Kconfig \
 	drivers/media/video/samsung/mali_r3p0_lsi/Kconfig \
 	drivers/media/video/samsung/ump_r3p0_lsi/Kconfig \
@@ -744,7 +743,7 @@ deps_config := \
 include/config/auto.conf: \
 	$(deps_config)
 
-ifneq "$(KERNELVERSION)" "3.0.88"
+ifneq "$(KERNELVERSION)" "3.0.89"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(ARCH)" "arm"

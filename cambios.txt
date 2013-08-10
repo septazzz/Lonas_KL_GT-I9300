@@ -1,20 +1,60 @@
-Kernel Lonas_KL 4.8 versión Stock
+Kernel Lonas_KL 5.1 versión Stock
 
 ------------------------------------------------
-Cambios realizados a día 29/07/2013
+Cambios realizados a día 10/08/2013
 
-Actualizado a Linux 3.0.88
-Actualizado Governor ZZmoove (Versión 0.6a)
-fb_delay a 100 por defecto (CRT-off)
-Actualizado SuperUser.apk
-Actualizado Binario Su
-Replaced SNAPPY-v3 with faster LZ4 compress/decompress algorithm
-mms_ts.c: eliminado KERN_DEBUG (guardar silencio)
-dynamic fsync: don't disable fdatasync()
-lcdfreq : support for CPU frequency based LCD freq scaling (used in zzmoove governor)
-Activado ARM_CPU_TOPOLOGY
-Activado SCHED_MC
-Activado SCHED_SMT
+Ramdisk I9300XXEMG4
+Zzmoove Versión 0.7
+Compiler flags updated (gcc 4.7)
+Fix Update 11
+VM: valores de latencia más bajos para ayudar a reducir el Lag
+SCHEDULER: Autogroup patch group by current user android UID
+Allow 0ms deadline latency, increase the read speed
+Eliminado PAGE_ALLOC_COSTLY_ORDER (mejoras en el rendimiento)
+mm/vmscan.c: avoid possible deadlock caused by too_many_isolated()
+ext4: prevent kernel panic in case of uninitialized jinode
+init/main.c: Reduce logging, remove ftrace
+power: neuter the cpufreq min samsung interface again
+mach-midas: Añadida plataforma CPUPower data (no aplicada en config por ahora - test)
+clock-exynos4212: Añadidas mas frecuencias
+lib/memcopy: use glibc version
+timer: optimize apply_slack()
+char-random: increase default entropy settings to (256,512)
+arm/crypto: Add optimized AES and SHA1 routines
+ARM/mm: drop GFP_COMP for dma_alloc_coherent
+init/main.c: execute lockdep_init as early as possible
+ARM: vmlinux.lds.S: align the exception fixup table to a 4-byte boundary
+ARM: cache: assume 64-byte L1 cachelines for ARMv7 CPUs
+ARM: vmlinux.lds.S: do not hardcode cacheline size as 32 bytes
+ARM: Allow CPU-supported unaligned accesses
+ARM: 7592/1: prevent generation of kernel unaligned memory accesses
+ARM: 7492/1: add strstr declaration for decompressors
+ARM: Add optimised swahb32() byteswap helper for v6 and above
+ARM: spinlock: use ticket algorithm for ARMv6+ locking implementation
+hrtimer: Consider preemption when migrating hrtimer cpu_bases
+hrtimer: Prevent enqueue of hrtimer on dead CPU
+rq_stats: add run queue statistic collection to kernel tick scheduler
+
+//// PENDIENTES POR AÑADIR ////
+* ARM: use generic strnlen_user and strncpy_from_user functions
+* lib: add generic strnlen_user() function
+* lib: Sparc's strncpy_from_user is generic enough, move under lib/
+* word-at-a-time: make the interfaces truly generic
+* vsprintf: optimize decimal conversion (again)
+* kernel: Move REPEAT_BYTE definition into linux/kernel.h
+* lib/kstrtox: common code between kstrto*() and simple_strto*() functions
+* lib: make _tolower() public
+* sched: don't call task_group() many times in set_task_rq()
+* Asynchronous I/O latency to a solid-state disk greatly increased
+* mutex: Make more scalable by doing less atomic operations
+* mutex: restrict mutex spinning to only one task per mutex
+* mutex: dynamically disable mutex spinning at high load
+* ARM: 7493/1: use generic unaligned.h
+* switch the protection of percpu_counter list to spinlock
+* scheduler: compute time-average nr_running per run-queue
+* proc: enhance time-average nr_running stats
+* scheduler: Re-compute time-average nr_running on read
+
 -------------------------------------------------- 
 
 

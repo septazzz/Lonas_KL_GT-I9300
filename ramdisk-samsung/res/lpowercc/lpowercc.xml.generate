@@ -306,7 +306,7 @@ echo '
       <seekBar  description="El mínimo a poder seleccionar es 1448k y el máximo 18360k. Por defecto: 4096 kbytes." 
                 name="Min Free kbytes" 
                 action="generic /proc/sys/vm/min_free_kbytes"
-                unit="%" min="1448" reversed="false" step="1" max="18360"/>
+                unit="kB" min="1448" reversed="false" step="1" max="18360"/>
 
     </settingsPane>
 
