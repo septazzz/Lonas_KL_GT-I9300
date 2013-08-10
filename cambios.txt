@@ -34,26 +34,25 @@ ARM: spinlock: use ticket algorithm for ARMv6+ locking implementation
 hrtimer: Consider preemption when migrating hrtimer cpu_bases
 hrtimer: Prevent enqueue of hrtimer on dead CPU
 rq_stats: add run queue statistic collection to kernel tick scheduler
-
-//// PENDIENTES POR AÑADIR ////
-* ARM: use generic strnlen_user and strncpy_from_user functions
-* lib: add generic strnlen_user() function
-* lib: Sparc's strncpy_from_user is generic enough, move under lib/
-* word-at-a-time: make the interfaces truly generic
-* vsprintf: optimize decimal conversion (again)
-* kernel: Move REPEAT_BYTE definition into linux/kernel.h
-* lib/kstrtox: common code between kstrto*() and simple_strto*() functions
-* lib: make _tolower() public
-* sched: don't call task_group() many times in set_task_rq()
-* Asynchronous I/O latency to a solid-state disk greatly increased
-* mutex: Make more scalable by doing less atomic operations
-* mutex: restrict mutex spinning to only one task per mutex
-* mutex: dynamically disable mutex spinning at high load
-* ARM: 7493/1: use generic unaligned.h
-* switch the protection of percpu_counter list to spinlock
-* scheduler: compute time-average nr_running per run-queue
-* proc: enhance time-average nr_running stats
-* scheduler: Re-compute time-average nr_running on read
+ARM: use generic strnlen_user and strncpy_from_user functions
+lib: add generic strnlen_user() function
+lib: Sparc's strncpy_from_user is generic enough, move under lib/
+word-at-a-time: make the interfaces truly generic
+kernel: Move REPEAT_BYTE definition into linux/kernel.h
+vsprintf: optimize decimal conversion (again)
+lib/kstrtox: common code between kstrto*() and simple_strto*() functions
+lib: make _tolower() public
+sched: don't call task_group() many times in set_task_rq()
+mutex: Make more scalable by doing less atomic operations
+mutex: restrict mutex spinning to only one task per mutex
+mutex: dynamically disable mutex spinning at high load
+ARM: 7493/1: use generic unaligned.h
+switch the protection of percpu_counter list to spinlock
+Asynchronous I/O latency to a solid-state disk greatly increased
+scheduler: compute time-average nr_running per run-queue
+scheduler: Re-compute time-average nr_running on read
+proc: enhance time-average nr_running stats
+mm/slab : fix compilation errors for Samsung kernel
 
 -------------------------------------------------- 
 
