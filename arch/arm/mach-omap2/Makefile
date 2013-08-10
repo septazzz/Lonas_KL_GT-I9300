@@ -259,7 +259,7 @@ obj-y					+= $(onenand-m) $(onenand-y)
 nand-$(CONFIG_MTD_NAND_OMAP2)		:= gpmc-nand.o
 obj-y					+= $(nand-m) $(nand-y)
 
-smc91x-$(CONFIG_SMC91X)			:= gpmc-smc91x.o
+smc91x-$(CONFIG_SMC91X)		:= gpmc-smc91x.o
 obj-y					+= $(smc91x-m) $(smc91x-y)
 
 smsc911x-$(CONFIG_SMSC911X)		:= gpmc-smsc911x.o
@@ -270,3 +270,5 @@ disp-$(CONFIG_OMAP2_DSS)		:= display.o
 obj-y					+= $(disp-m) $(disp-y)
 
 obj-y					+= common-board-devices.o
+obj-$(CONFIG_RQ_STATS)			+= rq_stats.o
+
