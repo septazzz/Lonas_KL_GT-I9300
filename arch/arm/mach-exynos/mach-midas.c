@@ -2150,6 +2150,26 @@ static unsigned int table_exynos4412_power[15] = {
 	1024, /* 1600 MHz */
 }; 
  
+static struct cputopo_power exynos4412_cpu_power = { 
+	.max  = 15, 
+	.step = 100000, 
+	.table = table_exynos4412_power, 
+}; 
+ 
+/* This table list all possible cpu power configuration */ 
+static struct cputopo_power *midas_cpupower_data[2] = { 
+	&default_cpu_power, 
+	&exynos4412_cpu_power, 
+}; 
+ 
+static struct platform_device midas_cpupower_dev = { 
+	.name = "cpupower", 
+	.dev = { 
+		.platform_data = midas_cpupower_data, 
+	}, 
+}; 
+#endif 
+ 
 static struct platform_device *midas_devices[] __initdata = {
 #ifdef CONFIG_SEC_WATCHDOG_RESET
 	&watchdog_reset_device,
