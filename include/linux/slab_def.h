@@ -14,8 +14,6 @@
 #include <asm/page.h>		/* kmalloc_sizes.h needs PAGE_SIZE */
 #include <asm/cache.h>		/* kmalloc_sizes.h needs L1_CACHE_BYTES */
 #include <linux/compiler.h>
-#include <linux/workqueue.h>
-#include <linux/kobject.h>
 
 #include <trace/events/kmem.h>
 
