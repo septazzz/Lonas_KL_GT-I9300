@@ -22,7 +22,7 @@
 
 #include "power.h"
 
-static int fb_delay = 0;
+static int fb_delay = 100;
 static wait_queue_head_t fb_state_wq;
 static DEFINE_SPINLOCK(fb_state_lock);
 static enum {

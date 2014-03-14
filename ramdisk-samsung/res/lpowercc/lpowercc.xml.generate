@@ -51,7 +51,7 @@ echo "
     <settingsPane description=\"regular el escalado del voltaje de la frecuencia dinámica de la CPU.\" 
                   name=\"Zzmoove tuneables\">
 
-      <seekBar description=\"Por defecto: `cat /sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate` µS.\" 
+      <seekBar description=\"Normal: 100000, Batería: 180000, Equilibrado: 45000, Rendimiento: 40000.\" 
                name=\"Sampling rate\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate\"
                unit=\"µS\" min=\"10000\" reversed=\"false\" step=\"1000\" max=\"180000\"/>
@@ -306,7 +306,7 @@ echo '
       <seekBar  description="El mínimo a poder seleccionar es 1448k y el máximo 18360k. Por defecto: 4096 kbytes." 
                 name="Min Free kbytes" 
                 action="generic /proc/sys/vm/min_free_kbytes"
-                unit="%" min="1448" reversed="false" step="1" max="18360"/>
+                unit="kB" min="1448" reversed="false" step="1" max="18360"/>
 
     </settingsPane>
 
@@ -398,7 +398,7 @@ echo '
     <settingsPane name="Front Buffer"
 		  description="">
 
-      <seekBar  description="Añade un pequeño retraso de x milisegundos al apagar o encender la pantalla, por defecto está a 0."
+      <seekBar  description="Añade un pequeño retraso de x milisegundos al apagar o encender la pantalla, por defecto está a 100."
 		name="Front buffer"
                 action="generic /sys/power/fb_delay"
                 unit="ms" min="0" reversed="false" step="25" max="500"/>

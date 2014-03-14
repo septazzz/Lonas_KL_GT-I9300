@@ -2119,6 +2119,57 @@ struct platform_device coresight_etm_device = {
 
 #endif
 
+#ifdef CONFIG_CPUPOWER 
+#include <linux/power/cpupower.h> 
+static unsigned int table_default_power[1] = { 
+	1024 
+}; 
+
+static struct cputopo_power default_cpu_power = { 
+	.max  = 1, 
+	.step = 1, 
+	.table = table_default_power, 
+}; 
+ 
+static unsigned int table_exynos4412_power[15] = { 
+	/* Power save mode CA9 MP */ 
+	8192, /*  200 MHz */
+	8192, /*  300 MHz */
+	8192, /*  400 MHz */
+	8192, /*  500 MHz */
+	1024, /*  600 MHz */
+	1024, /*  700 MHz */
+	1024, /*  800 MHz */
+	1024, /*  900 MHz */
+	1024, /* 1000 MHz */
+	1024, /* 1100 MHz */   
+	1024, /* 1200 MHz */
+	1024, /* 1300 MHz */
+	1024, /* 1400 MHz */
+	1024, /* 1500 MHz */
+	1024, /* 1600 MHz */
+}; 
+ 
+static struct cputopo_power exynos4412_cpu_power = { 
+	.max  = 15, 
+	.step = 100000, 
+	.table = table_exynos4412_power, 
+}; 
+ 
+/* This table list all possible cpu power configuration */ 
+static struct cputopo_power *midas_cpupower_data[2] = { 
+	&default_cpu_power, 
+	&exynos4412_cpu_power, 
+}; 
+ 
+static struct platform_device midas_cpupower_dev = { 
+	.name = "cpupower", 
+	.dev = { 
+		.platform_data = midas_cpupower_data, 
+	}, 
+}; 
+#endif 
+ 
 static struct platform_device *midas_devices[] __initdata = {
 #ifdef CONFIG_SEC_WATCHDOG_RESET
 	&watchdog_reset_device,
@@ -2126,6 +2177,9 @@ static struct platform_device *midas_devices[] __initdata = {
 #ifdef CONFIG_ANDROID_RAM_CONSOLE
 	&ram_console_device,
 #endif
+#ifdef CONFIG_CPUPOWER 
+	&midas_cpupower_dev, 
+#endif 
 	/* Samsung Power Domain */
 	&exynos4_device_pd[PD_MFC],
 	&exynos4_device_pd[PD_G3D],
@@ -2689,7 +2743,7 @@ static void __init exynos4_reserve_mem(void)
 #ifdef CONFIG_EXYNOS_C2C
 		"samsung-c2c=c2c_shdmem;"
 #endif
-		"s3cfb.0=fimd;exynos4-fb.0=fimd;"
+		"s3cfb.0=fimd;exynos4-fb.0=fimd;samsung-pd.1=fimd;"
 		"s3c-fimc.0=fimc0;s3c-fimc.1=fimc1;s3c-fimc.2=fimc2;s3c-fimc.3=fimc3;"
 		"exynos4210-fimc.0=fimc0;exynos4210-fimc.1=fimc1;exynos4210-fimc.2=fimc2;exynos4210-fimc.3=fimc3;"
 #ifdef CONFIG_ION_EXYNOS
